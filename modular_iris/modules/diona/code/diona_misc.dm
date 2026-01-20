@@ -94,5 +94,4 @@
 	description = "A plant-specific elixir of life."
 	nutriment_factor = 5 * REAGENTS_METABOLISM
 	color = "#00df30"
-	chemical_flags = CHEMICAL_RNG_GENERAL | CHEMICAL_RNG_FUN | CHEMICAL_RNG_BOTANY
 	taste_description = "bitter, dry, broccoli soup"

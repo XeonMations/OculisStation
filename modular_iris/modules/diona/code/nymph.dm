@@ -3,7 +3,7 @@
 /mob/living/basic/nymph
 	name = "diona nymph"
 	desc = "Is that a plant?"
-	icon = 'icons/mob/animal.dmi'
+	icon = 'modular_iris/modules/diona/icons/nymph.dmi'
 	icon_state = "nymph"
 	icon_living = "nymph"
 	icon_dead = "nymph_dead"
@@ -16,9 +16,8 @@
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
 	can_be_held = TRUE
 	worn_slot_flags = ITEM_SLOT_HEAD
-	head_icon = 'icons/mob/pets_held.dmi'
+	head_icon = 'modular_iris/modules/diona/icons/nymph_held.dmi'
 	held_state = "nymph"
-	footstep_type = FOOTSTEP_MOB_CLAW
 	hud_type = /datum/hud/nymph
 	butcher_results = list(/obj/item/food/meat/slab/human/mutant/diona = 4)
 	initial_language_holder = /datum/language_holder/diona
@@ -61,6 +60,7 @@
 	regenerate_icons()
 	ADD_TRAIT(src, TRAIT_MUTE, "nymph")
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)

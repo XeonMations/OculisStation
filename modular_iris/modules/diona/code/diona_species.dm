@@ -18,7 +18,6 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP
 	species_language_holder = /datum/language_holder/diona
 	bodytemp_normal = (BODYTEMP_NORMAL - 22) // Body temperature for dionae is much lower then humans as they are plants, supposed to be 15 celsius
-	swimming_component = /datum/component/swimming/diona
 	inert_mutation = /datum/mutation/drone
 	death_sound = 'modular_iris/modules/diona/sounds/death.ogg'
 
@@ -42,7 +41,7 @@
 	)
 
 	var/datum/action/diona/split/split_ability //All dionae start with this, this is for splitting apart completely.
-	var/datum/action/diona/partition/partition_ability //All dionae start with this as well, this is for splitting off a nymph from food.
+	var/datum/action/cooldown/diona/partition/partition_ability //All dionae start with this as well, this is for splitting off a nymph from food.
 	var/datum/weakref/drone_ref
 
 	var/time_spent_in_light
@@ -70,19 +69,20 @@
 	if(diona.stat != CONSCIOUS && !diona.mind && drone) //If the home body is not fully conscious, they dont have a mind and have a drone
 		INVOKE_ASYNC(drone, TYPE_PROC_REF(/datum/action/nymph/SwitchFrom, Trigger))
 
-/datum/species/diona/handle_radiation(mob/living/carbon/human/source, intensity, delta_time)
+/datum/species/diona/handle_radiation(mob/living/carbon/human/source, time_since_irradiated, seconds_per_tick)
 	//Dionae heal and eat radiation for a living.
-	source.adjust_nutrition(intensity * 0.1 * delta_time)
-	if(intensity > 50)
-		source.heal_overall_damage(brute = 1 * delta_time, burn = 1 * delta_time, required_bodytype = BODYTYPE_ORGANIC)
-		source.adjust_tox_loss(-2 * delta_time)
-		source.adjust_oxy_loss(-1 * delta_time)
+	source.adjust_nutrition(time_since_irradiated * 0.1 * seconds_per_tick)
+	if(time_since_irradiated > RAD_MOB_HAIRLOSS)
+		source.heal_overall_damage(brute = 1 * seconds_per_tick, burn = 1 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
+		source.adjust_tox_loss(-2 * seconds_per_tick)
+		source.adjust_oxy_loss(-1 * seconds_per_tick)
 
 /datum/species/diona/proc/on_projectile_hit(datum/source, atom/movable/firer, atom/target, angle)
 	SIGNAL_HANDLER
 
-	if(istype(P, /obj/projectile/energy/flora))
-		H.set_nutrition(min(H.nutrition+30, NUTRITION_LEVEL_FULL))
+	if(istype(source, /obj/projectile/energy/flora))
+		var/mob/living/carbon/human/human_target = target
+		human_target.set_nutrition(min(human_target.nutrition + 30, NUTRITION_LEVEL_FULL))
 
 /datum/species/diona/proc/on_death(gibbed, mob/living/carbon/human/H)
 	SIGNAL_HANDLER
@@ -93,13 +93,6 @@
 		return
 	split_ability.split(gibbed, H)
 
-/datum/species/diona/spec_gib(no_brain, no_organs, no_bodyparts, mob/living/carbon/human/H)
-	H.unequip_everything()
-	H.gib_animation()
-	H.spawn_gibs()
-	QDEL_NULL(H)
-	return
-
 /datum/species/diona/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons = TRUE, replace_missing = TRUE)
 	. = ..()
 	split_ability = new
@@ -109,6 +102,7 @@
 	human_who_gained_species.update_mob_height()
 	RegisterSignal(human_who_gained_species, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(refresh_health))
 	RegisterSignal(human_who_gained_species, COMSIG_LIVING_DEATH, PROC_REF(on_death))
+	RegisterSignal(human_who_gained_species, COMSIG_PROJECTILE_ON_HIT, PROC_REF(on_projectile_hit))
 	human_who_gained_species.add_movespeed_modifier(/datum/movespeed_modifier/diona, update = TRUE)
 
 /datum/species/diona/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
@@ -120,13 +114,14 @@
 	QDEL_NULL(partition_ability)
 
 	qdel(drone_ref)
-	UnregisterSignal(human, list(COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH))
+	UnregisterSignal(human, list(COMSIG_LIVING_HEALTH_UPDATE, COMSIG_LIVING_DEATH, COMSIG_PROJECTILE_ON_HIT))
 	human.remove_movespeed_modifier(/datum/movespeed_modifier/diona, update = TRUE)
-	human_who_gained_species.update_mob_height()
+	human.update_mob_height()
 
 // Diona are naturally taller than normal.
 /datum/species/diona/update_species_heights(mob/living/carbon/human/holder)
-	return holder.base_mob_height + 2
+	var/new_height = holder.get_mob_height()
+	return new_height + 2
 
 /datum/species/diona/help(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
 	. = ..()
@@ -143,36 +138,29 @@
 	name = "Split"
 	desc = "Split into our seperate nymphs."
 	background_icon_state = "bg_default"
-	button_icon = 'icons/hud/actions/actions_spells.dmi'
+	button_icon = 'modular_iris/modules/diona/icons/diona_actions.dmi'
 	button_icon_state = "split"
-	check_flags = AB_CHECK_DEAD
-	var/Activated = FALSE
+	check_flags = AB_CHECK_CONSCIOUS
 
-/datum/action/diona/split/is_available()
+/datum/action/diona/split/IsAvailable()
 	return ..() && isdiona(owner)
 
-/datum/action/diona/split/on_activate(mob/user, atom/target)
+/datum/action/diona/split/Trigger(mob/user, trigger_flags)
+	. = ..()
 	if(tgui_alert(usr, "Are we sure we wish to devolve ourselves and split into separated nymphs?",,list("Yes", "No")) != "Yes")
 		return FALSE
 	if(do_after(user, 8 SECONDS, user, hidden = TRUE))
-		if(user.incapacitated(IGNORE_RESTRAINTS)) //Second check incase the ability was activated RIGHT as we were being cuffed, and thus now in cuffs when this triggers
+		if(INCAPACITATED_IGNORING(user, INCAPABLE_RESTRAINTS)) //Second check incase the ability was activated RIGHT as we were being cuffed, and thus now in cuffs when this triggers
 			return FALSE
-		startSplitting(FALSE, user) //This runs when you manually activate the ability.
+		start_splitting(user) //This runs when you manually activate the ability.
 		return TRUE
+	return FALSE
 
-/datum/action/diona/split/proc/startSplitting(gibbed, mob/living/carbon/H)
-	if(Activated || gibbed)
-		return
-	Activated = TRUE
+/datum/action/diona/split/proc/start_splitting(mob/living/carbon/H)
 	H.Stun(6 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(split), gibbed, H), 5 SECONDS, TIMER_DELETE_ME)
+	addtimer(CALLBACK(src, PROC_REF(split), H), 5 SECONDS, TIMER_DELETE_ME)
 
-/datum/action/diona/split/proc/split(gibbed, mob/living/carbon/human/H)
-	// Gib the corpse with nothing left of use. After all the nymphs are ALL dead.
-	if(gibbed)
-		H.gib(TRUE, TRUE, TRUE)
-		return
-
+/datum/action/diona/split/proc/split(mob/living/carbon/human/H)
 	var/list/mob/living/basic/nymph/alive_nymphs = list()
 	var/mob/living/basic/nymph/nymph = new(H.loc) //Spawn the player nymph, including this one, should be six total nymphs
 	for(var/obj/item/bodypart/limb as anything in H.bodyparts)
@@ -211,23 +199,23 @@
 	H.mind?.grab_ghost() // Throw the fucking ghost back into the nymph.
 	H.gib(TRUE, TRUE, TRUE)  //Gib the old corpse with nothing left of use
 
-/datum/action/diona/partition
+/datum/action/cooldown/diona/partition
 	name = "Partition"
 	desc = "Allow a nymph to partition from our gestalt self."
 	background_icon_state = "bg_default"
-	button_icon = 'icons/hud/actions/actions_spells.dmi'
+	button_icon = 'modular_iris/modules/diona/icons/diona_actions.dmi'
 	button_icon_state = "grow"
 	cooldown_time = 5 MINUTES
-	var/ability_partition_cooldow
 
-/datum/action/diona/partition/on_activate(mob/user, atom/target)
-	var/mob/living/carbon/human/H = owner
-	start_cooldown()
-	H.nutrition = NUTRITION_LEVEL_STARVING
-	playsound(H, 'sound/mobs/non-humanoids/venus_trap/venus_trap_death.ogg', 25, 1)
-	new /mob/living/basic/nymph(H.loc)
+/datum/action/cooldown/diona/partition/Activate(atom/target)
+	. = ..()
+	var/mob/living/carbon/human/human_target = target
+	StartCooldown()
+	human_target.nutrition = NUTRITION_LEVEL_STARVING
+	playsound(human_target, 'sound/mobs/non-humanoids/venus_trap/venus_trap_death.ogg', 25, 1)
+	new /mob/living/basic/nymph(human_target.loc)
 
-/datum/action/diona/partition/is_available()
+/datum/action/cooldown/diona/partition/IsAvailable(feedback)
 	if(..())
 		var/mob/living/carbon/human/H = owner
 		if(H.nutrition >= NUTRITION_LEVEL_WELL_FED)
@@ -238,7 +226,7 @@
 /obj/item/organ/nymph_organ
 	name = "diona nymph"
 	desc = "You should not be seeing this, if you are, please contact a coder."
-	icon = 'icons/mob/animal.dmi'
+	icon = 'modular_iris/modules/diona/icons/nymph.dmi'
 	icon_state = "nymph"
 
 /obj/item/organ/nymph_organ/Remove(mob/living/carbon/organ_owner, special, pref_load)
@@ -249,17 +237,13 @@
 	for(var/datum/surgery/organ_manipulation/surgery in organ_owner.surgeries)
 		surgery.Destroy()
 	if(istype(body_part, /obj/item/bodypart/chest)) //Does the same things as removing the brain would, since the torso is what keeps the diona together.
-		organ_owner.dna.species.spec_death(FALSE, src)
+		organ_owner.death(FALSE)
 		QDEL_NULL(src)
 		return
 	new /mob/living/basic/nymph(organ_owner.loc)
 	QDEL_NULL(body_part)
 	QDEL_NULL(src)
 	organ_owner.update_body()
-
-/obj/item/organ/nymph_organ/transfer_to_limb(obj/item/bodypart/LB, mob/living/carbon/C)
-	Remove(C, FALSE)
-	forceMove(LB)
 
 /obj/item/organ/nymph_organ/r_arm
 	zone = BODY_ZONE_R_ARM

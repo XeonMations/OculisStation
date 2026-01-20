@@ -32,7 +32,7 @@
 	CHECK_DNA_AND_SPECIES(C)
 	var/datum/species/diona/S = C.dna.species
 	if(has_drone)
-		var/mob/living/simple_animal/hostile/retaliate/nymph/drone = drone_ref?.resolve()
+		var/mob/living/basic/nymph/drone = drone_ref?.resolve()
 		if(drone.stat == DEAD || QDELETED(drone))
 			to_chat(C, "You can't seem to find the psychic link with your nymph.")
 			has_drone = FALSE
