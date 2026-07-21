@@ -3,10 +3,10 @@ name: CI Suite
 on:
   push:
     branches:
-    - master
-    - 'project/**'
-    - 'gh-readonly-queue/master/**'
-    - 'gh-readonly-queue/project/**'
+      - master
+      - "project/**"
+      - "gh-readonly-queue/master/**"
+      - "gh-readonly-queue/project/**"
   pull_request:
     branches:
       - master
@@ -14,6 +14,7 @@ on:
   merge_group:
     branches:
       - master
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
