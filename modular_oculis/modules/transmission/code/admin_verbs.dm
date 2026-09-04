@@ -13,26 +13,26 @@ ADMIN_VERB(cmd_admin_broadcast_transmission, R_ADMIN, "Broadcast Transmission", 
 	user.broadcast_transmission(message, name_choice, color_choice)
 
 /client/proc/broadcast_transmission(message, name_choice, color_choice)
-	var/list/active_players = list()
+	var/list/active_clients = list()
 	for(var/mob/player_mob as anything in GLOB.player_list)
 		if(!player_mob?.client)
 			continue
-		if(isnewplayer(player_mob)) // exclude people in the lobby
+		if(isnewplayer(player_mob))
 			continue
-		active_players += player_mob
+		active_clients += player_mob.client
 
-	for(var/mob/player as anything in active_players)
-		INVOKE_ASYNC(player, TYPE_PROC_REF(/mob, do_transmission), message, name_choice, color_choice)
+	for(var/client/player_client as anything in active_clients)
+		INVOKE_ASYNC(player_client, TYPE_PROC_REF(/client, do_transmission), message, name_choice, color_choice)
 
-/mob/proc/do_transmission(message, name_choice, color_choice)
+/client/proc/do_transmission(message, name_choice, color_choice)
 	var/list/message_contents = splittext(message, "\n")
-	hud_used.transmission_text.alpha = 0
+	mob.hud_used.transmission_text.alpha = 0
 	for(var/line_text as anything in message_contents)
-		display_text(client, hud_used, TRANSMISSION_TEXT(line_text, name_choice, color_choice))
-		sleep(5 SECONDS)
+		display_text(mob.hud_used, TRANSMISSION_TEXT(line_text, name_choice, color_choice))
+		sleep(1.5 SECONDS * length(splittext(line_text, " ")))
 	end_transmission()
 
-/mob/proc/end_transmission()
-	animate(hud_used.transmission_text, alpha = 0, time = 1 SECONDS)
+/client/proc/end_transmission()
+	animate(mob.hud_used.transmission_text, alpha = 0, time = 1 SECONDS)
 
 #undef TRANSMISSION_TEXT
