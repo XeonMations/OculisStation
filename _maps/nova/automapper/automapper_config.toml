@@ -1138,7 +1138,7 @@ trait_name = "Station"
 # Oculis - Nebulastation Engineering Desk Bell
 [templates.nebulastation_engineering_desk_bell]
 map_files = ["nebulastation_engineering_desk_bell.dmm"]
-directory = "_maps/oculis/automapper/templates/NebulaStation/"
+directory = "_maps/oculis/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [127, 99, 2]
 trait_name = "Station"
@@ -1146,7 +1146,7 @@ trait_name = "Station"
 # Oculis - Nebulastation Medical Desk Bell
 [templates.nebulastation_medical_desk_bell]
 map_files = ["nebulastation_medical_desk_bell.dmm"]
-directory = "_maps/oculis/automapper/templates/NebulaStation/"
+directory = "_maps/oculis/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [115, 162, 2]
 trait_name = "Station"
@@ -1154,7 +1154,7 @@ trait_name = "Station"
 # Oculis - Nebulastation Science Desk Bell
 [templates.nebulastation_science_desk_bell]
 map_files = ["nebulastation_science_desk_bell.dmm"]
-directory = "_maps/oculis/automapper/templates/NebulaStation/"
+directory = "_maps/oculis/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [145, 162, 2]
 trait_name = "Station"
@@ -1162,7 +1162,7 @@ trait_name = "Station"
 # Oculis - Nebulastation Security Desk Bell
 [templates.nebulastation_security_desk_bell]
 map_files = ["nebulastation_security_desk_bell.dmm"]
-directory = "_maps/oculis/automapper/templates/NebulaStation/"
+directory = "_maps/oculis/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [158, 126, 2]
 trait_name = "Station"
@@ -1170,7 +1170,7 @@ trait_name = "Station"
 # Oculis - Nebulastation Service Desk Bell
 [templates.nebulastation_service_desk_bell]
 map_files = ["nebulastation_service_desk_bell.dmm"]
-directory = "_maps/oculis/automapper/templates/NebulaStation/"
+directory = "_maps/oculis/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [65, 139, 2]
 trait_name = "Station"
@@ -1178,7 +1178,7 @@ trait_name = "Station"
 # Oculis - Nebulastation Supply Desk Bell
 [templates.nebulastation_supply_desk_bell]
 map_files = ["nebulastation_supply_desk_bell.dmm"]
-directory = "_maps/oculis/automapper/templates/NebulaStation/"
+directory = "_maps/oculis/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [123, 183, 2]
 trait_name = "Station"
