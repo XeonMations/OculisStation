@@ -42,13 +42,22 @@
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 4
 	},
+/obj/effect/turf_decal/trimline/neutral/corner{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
 "i" = (
-/obj/modular_map_root/tramstation{
-	name = "secbarupper";
-	key = "secbarupper"
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 4
 	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Security Maintenance Hatch"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/department/security)
 "u" = (
@@ -59,6 +68,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/effect/turf_decal/trimline/neutral/filled/warning{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
 "w" = (
@@ -66,9 +78,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
 "A" = (
-/obj/effect/turf_decal/trimline/neutral/corner{
-	dir = 1
-	},
 /obj/effect/landmark/start/hangover,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
@@ -154,6 +163,9 @@
 	},
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 8
+	},
+/obj/effect/turf_decal/trimline/neutral/corner{
+	dir = 4
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
