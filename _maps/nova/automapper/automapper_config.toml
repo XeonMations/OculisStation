@@ -1182,3 +1182,51 @@ directory = "_maps/oculis/automapper/templates/NebulaStation/"
 required_map = "NebulaStation.dmm"
 coordinates = [123, 183, 2]
 trait_name = "Station"
+
+# Oculis - VoidRaptor Engineering Desk Bell
+[templates.voidraptor_engineering_desk_bell]
+map_files = ["voidraptor_engineering_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [136, 87, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Medical Desk Bell
+[templates.voidraptor_medical_desk_bell]
+map_files = ["voidraptor_medical_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [120, 124, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Science Desk Bell
+[templates.voidraptor_science_desk_bell]
+map_files = ["voidraptor_science_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [125, 179, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Security Desk Bell
+[templates.voidraptor_security_desk_bell]
+map_files = ["voidraptor_security_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [148, 162, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Service Desk Bell
+[templates.voidraptor_service_desk_bell]
+map_files = ["voidraptor_service_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [137, 147, 1]
+trait_name = "Station"
+
+# Oculis - VoidRaptor Supply Desk Bell
+[templates.voidraptor_supply_desk_bell]
+map_files = ["voidraptor_supply_desk_bell.dmm"]
+directory = "_maps/oculis/automapper/templates/VoidRaptor/"
+required_map = "VoidRaptor.dmm"
+coordinates = [151, 87, 1]
+trait_name = "Station"
