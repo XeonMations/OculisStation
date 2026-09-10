@@ -18,10 +18,4 @@
 		return
 	maptext_width = (view_to_pixels(hud.mymob.canon_client.view_size.getView())[1])
 
-/client/proc/display_text(datum/hud/active_hud, new_maptext)
-	var/map_height
-	WXH_TO_HEIGHT(MeasureText(new_maptext, null, active_hud.transmission_text.maptext_width), map_height)
-	animate(active_hud.transmission_text, alpha = 255, time = 1 SECONDS)
-	active_hud.transmission_text.maptext = new_maptext
-	active_hud.transmission_text.maptext_y = 25 - map_height
 
