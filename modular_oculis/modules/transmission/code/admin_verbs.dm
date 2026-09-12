@@ -40,7 +40,7 @@ ADMIN_VERB(cmd_admin_broadcast_transmission, R_ADMIN, "Broadcast Transmission", 
 	WXH_TO_HEIGHT(MeasureText(TRANSMISSION_TEXT(new_maptext, name_choice, color_choice), null, active_hud.transmission_text.maptext_width), map_height)
 	active_hud.transmission_text.maptext_y = 25 - map_height
 	animate(active_hud.transmission_text, alpha = 255, time = 1 SECONDS)
-	for(var/i in 1 to length_char(new_maptext) + 1)
+	for(var/i in 2 to length_char(new_maptext) + 1)
 		if(QDELETED(active_hud.transmission_text) || QDELETED(src))
 			return
 		active_hud.transmission_text.maptext = TRANSMISSION_TEXT((copytext_char(new_maptext, 1, i)), name_choice, color_choice)
