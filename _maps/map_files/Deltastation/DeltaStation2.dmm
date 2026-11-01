@@ -836,8 +836,8 @@
 "akf" = (
 /obj/structure/table/reinforced,
 /obj/item/bodypart/chest/robot,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -2263,15 +2263,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/education)
-"aAH" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/meter/layer2,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "aAS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -2641,6 +2632,20 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
+"aGB" = (
+/obj/structure/table/wood,
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/cigbutt/cigarbutt{
+	pixel_x = 6
+	},
+/obj/machinery/firealarm/directional/south,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/tcommsat/computer)
 "aGF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5170,6 +5175,11 @@
 "blX" = (
 /turf/closed/wall/r_wall,
 /area/station/science/ordnance/testlab)
+"bme" = (
+/obj/machinery/airalarm/directional/north,
+/obj/effect/spawner/random/trash/caution_sign,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "bmf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/engine,
@@ -7469,6 +7479,20 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/research)
+"bOd" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/table/wood,
+/obj/item/cigbutt/cigarbutt{
+	pixel_x = 7
+	},
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/turf/open/floor/carpet,
+/area/station/command/meeting_room/council)
 "bOh" = (
 /obj/structure/sign/painting/library{
 	pixel_y = -32
@@ -8718,7 +8742,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "ccY" = (
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/cardboard,
 /obj/item/book/manual/wiki/experimentor,
@@ -8860,13 +8884,6 @@
 /obj/structure/sign/warning/radiation/directional/west,
 /turf/open/floor/iron,
 /area/station/engineering/supermatter/room)
-"cfb" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "cfu" = (
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -9779,6 +9796,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
+"cpP" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/effect/turf_decal/tile/red/anticorner/contrasted{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/security/holding_cell)
 "cpT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -11468,25 +11494,6 @@
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /turf/open/floor/iron/white,
 /area/station/science/research)
-"cMr" = (
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/cigarette/cigar/cohiba{
-	pixel_x = 6
-	},
-/obj/item/cigarette/cigar/havana{
-	pixel_x = 2
-	},
-/obj/item/cigarette/cigar{
-	pixel_x = 4.5
-	},
-/obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron,
-/area/station/command/heads_quarters/ce)
 "cMA" = (
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 8
@@ -15652,13 +15659,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/grimy,
 /area/station/service/library)
-"dOA" = (
-/obj/machinery/airalarm/directional/north,
-/obj/effect/spawner/random/trash/caution_sign,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "dOE" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/effect/turf_decal/bot,
@@ -15725,7 +15725,7 @@
 	dir = 6
 	},
 /obj/structure/table,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/engineering/circuit_workshop)
@@ -17225,7 +17225,7 @@
 	network = list("ss13","rd")
 	},
 /obj/structure/table,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/science/circuits)
@@ -29438,18 +29438,6 @@
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
-"hgH" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "cafe_counter";
-	name = "Kitchen Counter Shutters"
-	},
-/obj/structure/displaycase/forsale/kitchen,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 8
-	},
-/area/station/service/kitchen)
 "hgJ" = (
 /turf/closed/wall,
 /area/station/commons/vacant_room/commissary)
@@ -30727,7 +30715,7 @@
 "hxT" = (
 /obj/structure/table/reinforced,
 /obj/structure/sign/poster/official/random/directional/south,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/effect/spawner/random/maintenance,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
@@ -31344,11 +31332,6 @@
 /obj/item/radio/intercom/directional/west,
 /turf/open/floor/wood,
 /area/station/service/theater/abandoned)
-"hHF" = (
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "hHJ" = (
 /obj/effect/turf_decal/stripes/white/line,
 /obj/effect/decal/cleanable/dirt,
@@ -31958,20 +31941,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/prison/safe)
-"hQh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/table/wood,
-/obj/item/cigbutt/cigarbutt{
-	pixel_x = 7
-	},
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/turf/open/floor/carpet,
-/area/station/command/meeting_room/council)
 "hQj" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -32128,7 +32097,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/item/assembly/signaler{
 	pixel_x = 6;
 	pixel_y = 5
@@ -39199,12 +39168,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
-"jDc" = (
-/obj/structure/cable,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "jDd" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/science)
@@ -41279,6 +41242,9 @@
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
+"kdn" = (
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "kdq" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /obj/effect/turf_decal/stripes/corner,
@@ -41413,7 +41379,7 @@
 /area/station/maintenance/port/aft)
 "kfj" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/assembly/prox_sensor,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -42862,7 +42828,7 @@
 /obj/structure/table/reinforced,
 /obj/item/crowbar,
 /obj/item/wrench,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/machinery/status_display/ai/directional/east,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
@@ -43444,6 +43410,22 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit)
+"kGt" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/right/directional/north{
+	name = "Hydroponics Desk";
+	req_access = list("hydroponics")
+	},
+/obj/machinery/door/window/right/directional/south{
+	name = "Hydroponics Desk";
+	req_one_access = list("kitchen","hydroponics")
+	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/producepad,
+/turf/open/floor/iron,
+/area/station/service/hydroponics)
 "kGA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet/red,
@@ -49460,17 +49442,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/service/hydroponics)
-"mhs" = (
-/obj/effect/landmark/start/hangover,
-/obj/structure/table/wood,
-/obj/machinery/door/firedoor,
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 6
-	},
-/turf/open/floor/iron/dark/smooth_half{
-	dir = 1
-	},
-/area/station/service/bar)
 "mhx" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/yellow,
@@ -51897,6 +51868,15 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"mLH" = (
+/obj/effect/landmark/start/hangover,
+/obj/structure/table/wood,
+/obj/machinery/door/firedoor,
+/obj/structure/tipjar/prefilled,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
+/area/station/service/bar)
 "mLP" = (
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/effect/turf_decal/stripes/line,
@@ -60571,20 +60551,6 @@
 /obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
-"oZp" = (
-/obj/structure/table/wood,
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/cigbutt/cigarbutt{
-	pixel_x = 6
-	},
-/obj/machinery/firealarm/directional/south,
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/tcommsat/computer)
 "oZz" = (
 /obj/structure/table/reinforced,
 /obj/item/experi_scanner{
@@ -60653,14 +60619,6 @@
 /obj/structure/flora/bush/leavy/style_random,
 /turf/open/misc/grass,
 /area/station/hallway/primary/fore)
-"pbp" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/red/directional/east,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "pbq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -62245,13 +62203,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
-"pvx" = (
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "pvB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
@@ -63403,6 +63354,12 @@
 /obj/item/taperecorder,
 /turf/open/floor/plating,
 /area/station/security/detectives_office/private_investigators_office)
+"pHB" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/red/directional/east,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "pHP" = (
 /obj/machinery/door/airlock{
 	name = "Locker Room Showers"
@@ -67071,6 +67028,13 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"qAg" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/meter/layer2,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "qAn" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
@@ -69796,6 +69760,25 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/lab)
+"rlk" = (
+/obj/structure/table/wood,
+/obj/structure/cable,
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/folder{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/item/folder/red{
+	pixel_x = 12;
+	pixel_y = 3
+	},
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/station/command/heads_quarters/hos)
 "rlq" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -69818,15 +69801,6 @@
 /obj/structure/bookcase/manuals/research_and_development,
 /turf/open/floor/wood,
 /area/station/service/library)
-"rlt" = (
-/obj/structure/table/reinforced,
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/effect/turf_decal/tile/red/anticorner/contrasted{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/security/holding_cell)
 "rlw" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Auxiliary Power"
@@ -70223,6 +70197,10 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
+"rqj" = (
+/obj/structure/cable,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "rqp" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/external{
@@ -71306,6 +71284,22 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
+"rEP" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/window/left/directional/north{
+	name = "Kitchen Desk";
+	req_one_access = list("kitchen","hydroponics")
+	},
+/obj/machinery/door/window/left/directional/south{
+	name = "Kitchen Desk";
+	req_access = list("kitchen")
+	},
+/obj/item/storage/bag/plants,
+/obj/item/reagent_containers/cup/watering_can,
+/obj/item/producepad,
+/turf/open/floor/iron,
+/area/station/service/kitchen)
 "rES" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -74324,25 +74318,6 @@
 /obj/structure/sign/warning/radiation/directional/south,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/engine)
-"spw" = (
-/obj/structure/table/wood,
-/obj/structure/cable,
-/obj/item/phone{
-	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/folder{
-	pixel_x = 9;
-	pixel_y = 1
-	},
-/obj/item/folder/red{
-	pixel_x = 12;
-	pixel_y = 3
-	},
-/obj/effect/turf_decal/tile/neutral/fourcorners,
-/turf/open/floor/iron/dark,
-/area/station/command/heads_quarters/hos)
 "spB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -78974,6 +78949,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/department/eva/abandoned)
+"txo" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "txF" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -84300,6 +84280,25 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/science/xenobiology)
+"uKk" = (
+/obj/item/phone{
+	desc = "Supposedly a direct line to Nanotrasen Sectorial command. It's not even plugged in.";
+	pixel_x = -3;
+	pixel_y = 3
+	},
+/obj/item/cigarette/cigar/cohiba{
+	pixel_x = 6
+	},
+/obj/item/cigarette/cigar/havana{
+	pixel_x = 2
+	},
+/obj/item/cigarette/cigar{
+	pixel_x = 4.5
+	},
+/obj/structure/table/reinforced,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron,
+/area/station/command/heads_quarters/ce)
 "uKl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
@@ -86354,6 +86353,10 @@
 "vmt" = (
 /turf/closed/wall/r_wall,
 /area/station/engineering/transit_tube)
+"vmG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "vmK" = (
 /obj/effect/turf_decal/siding/yellow,
 /obj/structure/table,
@@ -87645,12 +87648,6 @@
 	},
 /turf/open/floor/carpet/orange,
 /area/station/commons/dorms)
-"vBO" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
-/area/station/maintenance/department/science/xenobiology)
 "vBY" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
@@ -87730,22 +87727,6 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hos)
-"vDl" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/left/directional/north{
-	name = "Kitchen Desk";
-	req_one_access = list("kitchen","hydroponics")
-	},
-/obj/machinery/door/window/left/directional/south{
-	name = "Kitchen Desk";
-	req_access = list("kitchen")
-	},
-/obj/item/storage/bag/plants,
-/obj/item/reagent_containers/cup/watering_can,
-/obj/item/producepad,
-/turf/open/floor/iron,
-/area/station/service/kitchen)
 "vDm" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -88656,9 +88637,9 @@
 /area/station/maintenance/department/science/xenobiology)
 "vPV" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/structure/sign/departments/medbay/alt/directional/south,
 /obj/machinery/status_display/ai/directional/west,
 /turf/open/floor/iron,
@@ -91761,6 +91742,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
+"wDr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/open/floor/plating/foam_pattern,
+/area/station/maintenance/department/science/xenobiology)
 "wDy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -92779,12 +92765,6 @@
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/wood/large,
 /area/station/service/library)
-"wSn" = (
-/obj/structure/table/wood,
-/obj/item/folder/red,
-/obj/item/book/manual/wiki/security_space_law,
-/turf/open/floor/wood,
-/area/station/command/meeting_room/council)
 "wSq" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/turf_decal/stripes/corner{
@@ -94903,22 +94883,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/maintenance/port/aft)
-"xut" = (
-/obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/window/right/directional/north{
-	name = "Hydroponics Desk";
-	req_access = list("hydroponics")
-	},
-/obj/machinery/door/window/right/directional/south{
-	name = "Hydroponics Desk";
-	req_one_access = list("kitchen","hydroponics")
-	},
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/item/producepad,
-/turf/open/floor/iron,
-/area/station/service/hydroponics)
 "xuy" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -95255,6 +95219,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/maintenance/department/eva/abandoned)
+"xym" = (
+/obj/structure/table/wood,
+/obj/item/folder/red,
+/obj/item/book/manual/wiki/security_space_law,
+/turf/open/floor/wood,
+/area/station/command/meeting_room/council)
 "xyt" = (
 /obj/effect/landmark/start/hangover,
 /obj/effect/turf_decal/tile/green{
@@ -96760,6 +96730,18 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
+"xRp" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "cafe_counter";
+	name = "Kitchen Counter Shutters"
+	},
+/obj/structure/tipjar/prefilled,
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/station/service/kitchen)
 "xRv" = (
 /obj/effect/landmark/start/hangover,
 /obj/effect/turf_decal/stripes/line,
@@ -116267,8 +116249,8 @@ vPU
 hzj
 vPU
 rjz
-pvx
-jDc
+txo
+rqj
 nCi
 nCi
 qYo
@@ -116516,8 +116498,8 @@ vpl
 vVc
 vVc
 nCi
-jDc
-pbp
+rqj
+pHB
 nCi
 nCi
 nCi
@@ -117555,7 +117537,7 @@ gCt
 gCt
 nCi
 vPU
-cfb
+wDr
 imw
 nCi
 nCi
@@ -117799,7 +117781,7 @@ ihs
 gRd
 acX
 aMl
-aAH
+qAg
 iAZ
 exZ
 nCi
@@ -117813,7 +117795,7 @@ uhb
 nCi
 nGp
 lqa
-vBO
+vmG
 uGn
 nCi
 aaa
@@ -118058,7 +118040,7 @@ dXH
 jFe
 tSh
 dcI
-vBO
+vmG
 uhb
 ebW
 imx
@@ -118329,7 +118311,7 @@ jPZ
 tmr
 nCi
 vJv
-hHF
+kdn
 guA
 nCi
 aaa
@@ -118585,7 +118567,7 @@ dpN
 qUB
 qUB
 nCi
-dOA
+bme
 cay
 izW
 mAt
@@ -121112,7 +121094,7 @@ gsV
 auh
 tMl
 apu
-cMr
+uKk
 aHE
 uVh
 gAw
@@ -129555,12 +129537,12 @@ bbQ
 sao
 ueJ
 wsA
-xut
+kGt
 cyM
 fyw
 gld
 pZF
-vDl
+rEP
 gAD
 lZa
 dyb
@@ -130332,7 +130314,7 @@ pLx
 jZj
 umN
 nWc
-hgH
+xRp
 nyg
 cnE
 iRo
@@ -133446,7 +133428,7 @@ awc
 kRr
 nHc
 mBU
-wSn
+xym
 kPM
 pRS
 pqo
@@ -134986,7 +134968,7 @@ qey
 mGE
 qGW
 nHu
-hQh
+bOd
 bHd
 mxU
 xJh
@@ -135215,7 +135197,7 @@ pIk
 pdT
 eQO
 jWb
-mhs
+mLH
 sBX
 fxn
 vnU
@@ -138330,7 +138312,7 @@ eVl
 srV
 uJj
 mGD
-oZp
+aGB
 xkw
 jDi
 uEh
@@ -147590,7 +147572,7 @@ awj
 vMj
 lmK
 gBs
-rlt
+cpP
 dth
 ddC
 ajq
@@ -153479,7 +153461,7 @@ hOw
 pTx
 hOw
 gOc
-spw
+rlk
 bRF
 qYo
 lvw

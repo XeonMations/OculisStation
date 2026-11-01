@@ -5,17 +5,18 @@
 	unique_vent = TRUE
 	spawn_drone_on_tap = FALSE
 	boulder_size = BOULDER_SIZE_LARGE
+	// pick_weight() requires integer weights. rare minerals have one tenth the common weight.
 	mineral_breakdown = list( // All the riches of the world, eeny meeny boulder room.
-		/datum/material/iron = 1,
-		/datum/material/glass = 1,
-		/datum/material/plasma = 1,
-		/datum/material/titanium = 1,
-		/datum/material/silver = 1,
-		/datum/material/gold = 1,
-		/datum/material/diamond = 0.1,
-		/datum/material/uranium = 1,
-		/datum/material/bluespace = 0.1,
-		/datum/material/plastic = 1,
+		/datum/material/iron = 10,
+		/datum/material/glass = 10,
+		/datum/material/plasma = 10,
+		/datum/material/titanium = 10,
+		/datum/material/silver = 10,
+		/datum/material/gold = 10,
+		/datum/material/diamond = 1,
+		/datum/material/uranium = 10,
+		/datum/material/bluespace = 1,
+		/datum/material/plastic = 10,
 	)
 	defending_mobs = list(
 		/mob/living/simple_animal/hostile/megafauna/bubblegum,
@@ -55,12 +56,13 @@
 		return
 	// Completely override the normal wave defense, and just spawn the boss.
 	var/mob/living/simple_animal/hostile/megafauna/boss = new summoned_boss(loc)
-	RegisterSignal(boss, COMSIG_VENT_WAVE_CONCLUDED, PROC_REF(handle_wave_conclusion))
+	RegisterSignal(boss, COMSIG_LIVING_DEATH, PROC_REF(handle_wave_conclusion)) // OCULIS EDIT - ORIGINAL: RegisterSignal(boss, COMSIG_VENT_WAVE_CONCLUDED, PROC_REF(handle_wave_conclusion))
 	SSblackbox.record_feedback("tally", "ore_vent_mobs_spawned", 1, summoned_boss)
 	boss.say(boss.summon_line, language = /datum/language/common, forced = "summon line") //Pull their specific summon line to say. Default is meme text so make sure that they have theirs set already.
 
 /obj/structure/ore_vent/boss/handle_wave_conclusion()
 	node = new /mob/living/basic/node_drone(loc) //We're spawning the vent after the boss dies, so the player can just focus on the boss.
+	node.attached_vent = src // OCULIS EDIT ADDITION
 	SSblackbox.record_feedback("tally", "ore_vent_mobs_killed", 1, summoned_boss)
 	COOLDOWN_RESET(src, wave_cooldown)
 	return ..()

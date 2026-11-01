@@ -102,7 +102,7 @@
 	var/static/list/pet_commands = list(
 		/datum/pet_command/idle,
 		/datum/pet_command/free,
-		/datum/pet_command/follow,
+		/datum/pet_command/follow/slime, // OCULIS EDIT, ORIGINAL: /datum/pet_command/follow,
 		/datum/pet_command/attack/slime,
 	)
 
@@ -324,14 +324,10 @@
 
 		do_sparks(5, TRUE, carbon_target)
 		var/power = our_slime.powerlevel + rand(0,3)
-		// IRIS ADDITION START
-		if(transformative_effect == SLIME_TYPE_ORANGE)
-			carbon_target.adjust_fire_stacks(2)
-			carbon_target.ignite_mob()
-		// IRIS ADDITION END
 		carbon_target.Paralyze(2 SECONDS)
-		carbon_target.Knockdown(power * 2 SECONDS)
+		carbon_target.Knockdown(power * 0.5 SECONDS) // OCULIS EDIT CHANGE - SLIME_RANCHER - ORIGINAL: carbon_target.Knockdown(power * 2 SECONDS)
 		carbon_target.set_stutter_if_lower(power * 2 SECONDS)
+		SEND_SIGNAL(our_slime, COMSIG_SLIME_SHOCKED, carbon_target) // OCULIS EDIT ADDITION - SLIME_RANCHER
 		if (prob(stunprob) && our_slime.powerlevel >= SLIME_EXTRA_SHOCK_COST)
 			adjust_power_level(-SLIME_EXTRA_SHOCK_COST)
 			carbon_target.apply_damage(our_slime.powerlevel * rand(6, 10), BURN, spread_damage = TRUE, wound_bonus = CANT_WOUND)
@@ -381,7 +377,10 @@
 
 	var/core_count = min(count, cores)
 	for(var/i in 1 to core_count)
-		new slime_type.core_type(loc)
+		// OCULIS EDIT CHANGE START - SLIME_RANCHER - ORIGINAL: new slime_type.core_type(loc)
+		var/obj/item/slime_extract/core = new slime_type.core_type(loc)
+		core.fresh_from_slime = TRUE
+		// OCULIS EDIT CHANGE END
 		cores--
 
 	regenerate_icons()
